@@ -1,0 +1,31 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="container">
+  <div class="section">
+    <div *ngIf="userService.isUserRoleAdmin()" class="row">
+      <div class="col s12">
+        <div class="icon-block">
+          <h2 class="center light-blue-text"><i class="medium material-icons">star</i></h2>
+          <p class="center light">
+            Hello this is the students page. Its only applicaple for admin role!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="userService.isUserRoleUser()" class="row">
+      <div class="col s12">
+        <div class="icon-block">
+          <h2 class="center light-blue-text"><i class="medium material-icons">whatshot</i></h2>
+          <p class="center">
+            Hello this is the students page. Its only applicaple for user role!
+          </p>
+          <div class="center">
+            Value existing is session 'userInput': {{studentService.getUserInput()}}
+            <a *ngIf="!studentService.getUserInput()" (click)="userInputPopUp()" class="btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <a (click)="studentService.removeUserInput()" class="btn-floating waves-effect waves-light red"><i class="material-icons">remove</i></a>
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>

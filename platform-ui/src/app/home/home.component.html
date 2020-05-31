@@ -1,0 +1,37 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <h1 class="header center orange-text">Platform</h1>
+    <div class="row center">
+      <h5 class="header col s12 light">An application for ...</h5>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div *ngIf="userService.isUserRoleAdmin()" class="row">
+      <div class="col s12">
+        <div class="icon-block">
+          <h2 class="center light-blue-text"><i class="medium material-icons">supervised_user_circle</i></h2>
+          <p class="center light">
+            This is the admin view!
+            <a (click)="goToStudentPage()" class="btn-floating waves-effect waves-light red"><i class="material-icons">directions</i></a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="userService.isUserRoleUser()" class="row">
+      <div class="col s12">
+        <div class="icon-block">
+          <h2 class="center light-blue-text"><i class="medium material-icons">verified_user</i></h2>
+          <p class="center light">
+            This is the user view.
+            <a (click)="goToStudentPage()" class="btn-floating waves-effect waves-light red"><i class="material-icons">directions</i></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

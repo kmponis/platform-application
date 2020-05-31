@@ -1,0 +1,32 @@
+<div *ngIf="userService.isHackUrl" class="red-text error-message">
+  <i class="material-icons">error</i>Hacking the URL is not acceptable, you have been logged out
+</div>
+<div *ngIf="userService.isLoginError" class="red-text error-message">
+  <i class="material-icons">error</i>Invalid username or password
+</div>
+<div *ngIf="userService.isAutoLogout" class="red-text">
+  <i class="material-icons">warning</i>You have been automatically logged out
+</div>
+<div *ngIf="userService.isManualLogout" class="green-text">
+  <i class="material-icons">notification_important</i>You have successfully logged out
+</div>
+
+<form #signinForm='ngForm' class="col s12 white" (ngSubmit)="onSubmit(username.value, password.value)">
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">account_circle</i>
+      <input type="text" #username ngModel name="username" placeholder="username" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">vpn_key</i>
+      <input type="password" #password ngModel name="password" placeholder="password" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <button [disabled]="!signinForm.valid" class="btn-large btn-submit indigo darken-1" type="submit">Login</button>
+    </div>
+  </div>
+</form>

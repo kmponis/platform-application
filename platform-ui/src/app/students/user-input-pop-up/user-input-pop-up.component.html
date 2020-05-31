@@ -1,0 +1,11 @@
+<div class="center">
+  <h1 mat-dialog-title>What are you doing here re malaka.</h1>
+  <div mat-dialog-content>
+    <p>This is to find out what a user is doing here?</p>
+    <input matInput [(ngModel)]="userInput.input">
+  </div>
+  <div class="buttonCenter" mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="userInput.input" cdkFocusInitial>Done</button>
+    <button mat-button [mat-dialog-close]="null">Cancel</button>
+  </div>
+</div>

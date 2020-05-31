@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  platform_be:
+    container_name: platform-be
+    restart: always
+    build: ./platform-be
+    volumes:
+      - ./platform-be:/platform-be/workspace
+      - ~/.m2:/root/.m2
+    ports:
+      - "8885:8885"
+    networks:
+      - platform-network
+
+  platform_ui:
+    container_name: platform-ui
+    restart: always
+    build: ./platform-ui
+    volumes:
+      - ./platform-ui:/platform-ui/usr/src/app
+    ports:
+      - "80:80"
+    networks:
+      - platform-network
+    # links:
+    #   - platform_be
+
+networks:
+  platform-network:
+    driver: bridge

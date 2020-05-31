@@ -1,0 +1,14 @@
+<nav>
+  <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left">
+      <li>
+        <a (click)="goToHome()"><i class="material-icons">home</i></a>
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="right hide-on-small-only">
+      <li>
+        <a (click)="userService.signout('manual')">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
